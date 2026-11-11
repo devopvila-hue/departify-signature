@@ -108,9 +108,19 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
               </button>
             )}
             {envelope.status === 'completed' && (
-              <a className="btn btn-primary" href={`/api/envelopes/${envelope.id}/signed`} download>
-                Descargar documento firmado
-              </a>
+              <>
+                <a
+                  className="btn"
+                  href={`/api/envelopes/${envelope.id}/signed?inline=1`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ver firmado
+                </a>
+                <a className="btn btn-primary" href={`/api/envelopes/${envelope.id}/signed`} download>
+                  Descargar documento firmado
+                </a>
+              </>
             )}
           </div>
         </div>

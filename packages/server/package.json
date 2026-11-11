@@ -7,7 +7,8 @@
     "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts",
     "test": "tsx --test test/*.test.ts",
-    "e2e": "tsx test/e2e.ts"
+    "e2e": "tsx test/e2e.ts",
+    "seed": "tsx scripts/demo-seed.ts"
   },
   "dependencies": {
     "@fastify/cors": "^10.0.1",

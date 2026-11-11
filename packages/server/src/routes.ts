@@ -170,16 +170,22 @@ export async function buildServer(options: BuildServerOptions): Promise<FastifyI
       .send(document.content);
   });
 
-  app.get<{ Params: { id: string } }>('/api/envelopes/:id/signed', async (request, reply) => {
-    const signed = service.getSignedDocument(request.params.id);
-    if (!signed) {
-      return reply.status(404).send({ error: 'not_found', message: 'The signed document is not ready yet.' });
-    }
-    return reply
-      .header('Content-Type', 'application/pdf')
-      .header('Content-Disposition', `attachment; filename="${encodeURIComponent(signed.fileName)}"`)
-      .send(signed.content);
-  });
+  app.get<{ Params: { id: string }; Querystring: { inline?: string } }>(
+    '/api/envelopes/:id/signed',
+    async (request, reply) => {
+      const signed = service.getSignedDocument(request.params.id);
+      if (!signed) {
+        return reply.status(404).send({ error: 'not_found', message: 'The signed document is not ready yet.' });
+      }
+      // `?inline=1` previews the signed PDF in the browser instead of
+      // downloading it, which is handy to check the certificate page.
+      const disposition = request.query.inline === '1' ? 'inline' : 'attachment';
+      return reply
+        .header('Content-Type', 'application/pdf')
+        .header('Content-Disposition', `${disposition}; filename="${encodeURIComponent(signed.fileName)}"`)
+        .send(signed.content);
+    },
+  );
 
   /* ------------------------------ signing room ---------------------------- */
 
