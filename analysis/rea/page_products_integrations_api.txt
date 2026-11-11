@@ -1,0 +1,217 @@
+API Integrations | Signaturit 
+ Signaturit Group is becoming Namirial 
+ Find out more 
+ Signaturit Group is becoming Namirial 
+ Find out more 
+ Signaturit Group is becoming Namirial 
+ Find out more 
+ Signaturit Group is becoming Namirial 
+ Find out more 
+ Signaturit Group is becoming Namirial 
+ Find out more 
+ Signaturit Group is becoming Namirial 
+ Find out more 
+ Signaturit Group is becoming Namirial 
+ Find out more 
+ Signaturit Group is becoming Namirial 
+ Find out more 
+ Products 
+ Identity Verification 
+ ID Verification Identify your customers in seconds with automatic and reliable verification 
+ Digital Identity Wallet Save your credentials in your Wallet and decide what data to share 
+ Verifiable Credentials Issue, manage, and verify secure digital credentials recognized across the EU 
+ Authentication 
+ Certificate Creation Issue qualified digital certificates remotely or in person 
+ Certificate Management Centralize and protect your digital certificates in a single cloud-based platform. 
+ Data collection & Analysis 
+ Electronic Notifications Avoid penalties by automating the receipt of electronic notifications 
+ Document Verification Check document authenticity to prevent fraud 
+ E-Signature 
+ Electronic signature Simplify the signing of your documents online 
+ Certified SMS Guarantee the delivery and legal validity of your SMS communications 
+ Certified email Ensure the delivery and legal validity of your email communications. 
+ Digital preservation Ensure the authenticity and compliance of your electronic documents 
+ Solutions 
+ By industry 
+ col 
+ Public Administration 
+ Logistics 
+ Real Estate 
+ Education 
+ Automobile 
+ col 
+ Hospitality 
+ Healthcare 
+ Facilities 
+ Financial Services 
+ Insurance 
+ Staffing & recruiting 
+ By use case 
+ Legal 
+ Audits 
+ Human Resources 
+ Procurement 
+ Sales & Marketing 
+ IT, Security and Information Systems 
+ See Signaturit in action We simplify your document workflows Get a personalized demo 
+ Partners 
+ col 
+ Partner Program 
+ Success Stories 
+ Marketplace Find the ideal partner for your project 
+ Let’s partner Grow your solution portfolio with Signaturit Join the program 
+ Resources 
+ col 
+ Blog 
+ Knowledge center 
+ Client stories 
+ Support 
+ Featured Secure digital onboarding Get the guide 
+ Pricing 
+ EN 
+ ES 
+ FR 
+ Login 
+ Contact 
+ Free trial 
+ Login 
+ Contact 
+ Free trial 
+ Products 
+ Identity Verification 
+ ID Verification Identify your customers in seconds with automatic and reliable verification 
+ Digital Identity Wallet Save your credentials in your Wallet and decide what data to share 
+ Verifiable Credentials Issue, manage, and verify secure digital credentials recognized across the EU 
+ Authentication 
+ Certificate Creation Issue qualified digital certificates remotely or in person 
+ Certificate Management Centralize and protect your digital certificates in a single cloud-based platform. 
+ Data collection & Analysis 
+ Electronic Notifications Avoid penalties by automating the receipt of electronic notifications 
+ Document Verification Check document authenticity to prevent fraud 
+ E-Signature 
+ Electronic signature Simplify the signing of your documents online 
+ Certified SMS Guarantee the delivery and legal validity of your SMS communications 
+ Certified email Ensure the delivery and legal validity of your email communications. 
+ Digital preservation Ensure the authenticity and compliance of your electronic documents 
+ Solutions 
+ By industry 
+ col 
+ Public Administration 
+ Logistics 
+ Real Estate 
+ Education 
+ Automobile 
+ col 
+ Hospitality 
+ Healthcare 
+ Facilities 
+ Financial Services 
+ Insurance 
+ Staffing & recruiting 
+ By use case 
+ Legal 
+ Audits 
+ Human Resources 
+ Procurement 
+ Sales & Marketing 
+ IT, Security and Information Systems 
+ See Signaturit in action We simplify your document workflows Get a personalized demo 
+ Partners 
+ col 
+ Partner Program 
+ Success Stories 
+ Marketplace Find the ideal partner for your project 
+ Let’s partner Grow your solution portfolio with Signaturit Join the program 
+ Resources 
+ col 
+ Blog 
+ Knowledge center 
+ Client stories 
+ Support 
+ Featured Secure digital onboarding Get the guide 
+ Pricing 
+ EN 
+ ES 
+ FR 
+ Login 
+ Contact 
+ Free trial 
+ Our APIs 
+ Boost your business with Signaturit Group, a Namirial Company's APIs for your Department 
+ Ready to take your business to the next level? Signaturit Group, a Namirial Company's APIs make it possible without disrupting your daily operations. Our extensive range of APIs enables developers to integrate our products and services, accelerating digitisation with our trusted services while ensuring full compliance. 
+ Two electronic signature APIs 
+ Signaturit electronic signature 
+ Integrate Signaturit’s electronic signature into your website or software to streamline contract signing processes with a legal solution that meets the highest standards of security and reliability. 
+ Start your integration 
+ Ivnosys e-signature 
+ If you require greater customisation for your signature processes, our Ivnosys e-signature API is the ideal solution. Tailor your workflows to your specific needs. 
+ Start your integration 
+ Our APIs Integrate our trusted services 
+ Certificate management API 
+ Centrally manage and control your company’s certificates securely with the Ivnosys Certificate Management API. This API streamlines certificate management, reducing unnecessary risks. 
+ Start your integration now 
+ Benefits Code: less is more 
+ Rapid implementation 
+ Benefit from our comprehensive documentation, sample code, and SDKs, all designed to ensure a swift and seamless integration of our services. 
+ Security and legality 
+ We adhere to the eIDAS and GDPR regulations, offering a range of electronic signature types while ensuring robust protection of user data. 
+ Fully adaptable 
+ Customise our trusted services to align with your company's specific requirements. 
+ Advantages Integrating Signaturit Group, a Namirial Company's APIs 
+ Innovation 
+ Demonstrate your business's modern approach by transitioning to digital processes with our trusted solutions, leaving paper documents in the past. 
+ Saving time 
+ Speed up your business processes with the automation capabilities of our APIs 
+ Saving costs 
+ Drastically cut operational costs by eliminating paper and leveraging our digital solutions. 
+ Care for the environment 
+ Today, reducing paper consumption is more important than ever. Companies that transition to a digital office make a significant positive impact on our environment. 
+ Let's build something very good together. 
+ Find an integrator 
+ col 
+ Signaturit Group, a Namirial Company 
+ About Us 
+ Press 
+ Join The Team 
+ Our Group 
+ col 
+ Resources Center 
+ Resources 
+ Customer Success Stories 
+ ROI Calculator 
+ Free signature 
+ Electronic Signature in Word 
+ Digital Signature in PDF 
+ Documentation Hub 
+ col 
+ Legal 
+ Compliance – Accreditations 
+ TSP Documents – Ivnosys 
+ TSP Documents – Signaturit 
+ TSP Documents – Universign 
+ TSP Documents – Vialink 
+ TSP Documents – Validated ID 
+ col 
+ Developers 
+ Zapier 
+ Google Docs 
+ SAP 
+ Lucca 
+ Signaturit API 
+ col 
+ Contact 
+ Support 
+ Sales 
+ Terms & Conditions 
+ T&C Ivnosys & Signaturit Platform 
+ T&C Validated ID 
+ T&C Universign 
+ T&C Vialink 
+ Legal Notice 
+ Cookie policy 
+ Group Website Privacy Policy 
+ ©Copyright Signaturit 2026 
+ Universign is now part of Signaturit Group, a Namirial Company Find all our services and solutions at www.signaturit.com 
+ Platform login 
+ Signaturit Platform 
+ Universign

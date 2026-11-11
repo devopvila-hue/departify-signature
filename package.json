@@ -1,0 +1,24 @@
+{
+  "name": "signatureit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.12.3",
+  "description": "DEPARTIFY-ready electronic signature platform (local-first, evidence-backed)",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter @signatureit/server --filter @signatureit/web run dev",
+    "build": "pnpm --filter @signatureit/web run build",
+    "start": "pnpm --filter @signatureit/server run start",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "pnpm -r --if-present run test",
+    "e2e": "pnpm --filter @signatureit/server run e2e"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

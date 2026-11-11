@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# local runtime state (never commit documents, signatures or databases)
+packages/server/data/
+packages/server/.data/
+.env
+.env.local
+
+# large raw REA captures (keep the distilled evidence, not the megabytes)
+analysis/rea/*.raw.txt
+analysis/rea/js_analysis.json
+analysis/rea/export_result.json
+analysis/rea/scripts_export/
+analysis/rea/page_*.html
+analysis/rea/signaturit_home.html
+analysis/rea/err.txt

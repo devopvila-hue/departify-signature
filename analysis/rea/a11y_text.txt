@@ -1,0 +1,169 @@
+UE Legal electronic signature software | Signaturit
+RootWebArea
+none
+generic
+Signaturit Group is becoming Namirial Find out more Signaturit Group is becoming Namirial Find out more Signaturit Group is becoming Namirial Find out more Signaturit Group is becoming Namirial Find out more Signaturit Group is becoming Namirial Find out more Signaturit Group is becoming Namirial Find out more Signaturit Group is becoming Namirial Find out more Signaturit Group is becoming Namirial Find out more
+link
+banner
+contentinfo
+paragraph
+Find out more
+StaticText
+logo
+list
+Electronic signature software
+heading
+Streamline your business processes
+Request a demo
+Compare plans and pricing
+HR dashboard showing signed documents and pending approvals
+image
+They trust us
+iberia
+CANON 1 1
+Decathlon 2
+NTT DATA 2
+Mediapro
+vueling
+How does electronic signature work?
+Benefits of our e-signatures
+icon legal manager turquoise
+Legal backing for all your transactions (eIDAS, GDPR...)
+icon trust turquoise
+Technological security in your signing processes
+icon signature turquoise
+Improve the signer's experience
+Select the signature level that matches your legal requirements
+simple signature
+Simple Signature
+signature certificate
+Advanced Signature with digital certificate
+signature otp
+Advanced signature with OTP
+Qualified Signature
+Signaturit Group is becoming Namirial
+InlineTextBox
+listitem
+Language Switcher
+navigation
+Close deals online or in person, fast and with full legal validity.
+Customers
+Step-by-step
+Configure and send your document
+Sign from anywhere
+Keep track easily
+Securely archived
+Upload the document or contract you need to send for signature to our platform, in PDF or Word format. When you are ready, click ‘Send’ to send it to the signatory.
+It consists of
+signing with a click
+It is very easy to use, but despite having probative value, it does not allow the signatory to be uniquely identified.
+The signatory signs with their digital certificate, issued by third parties.
+A digital certificate is the only means of
+technically and legally guaranteeing a person’s identity
+on the Internet.
+The signatory completes the process using a
+unique code received
+by SMS, ensuring a simple and quick signing experience.
+The integrity of the document is assured and the identity of the signatory is confirmed unequivocally.
+The signatory uses a
+qualified electronic certificate
+, issued by an accredited provider and
+stored on a secure device
+This type of signature offers the
+highest level of legal certainty
+, guaranteeing the integrity of the document and the verified identification of the signatory.
+Login
+Streamline your business
+processes
+Upload the document or contract you need to send for signature to our platform, in PDF
+or Word format. When you are ready, click ‘Send’ to send it to the signatory.
+Uploading a document for electronic signature.
+Signing a document from a mobile device using a QR code.
+Electronic signature completed with audit trail.
+Archiving signed documents securely.
+Legal backing for all your
+transactions (eIDAS,
+GDPR...)
+Technological security in
+your signing processes
+Improve the signer's
+experience
+Select the signature level that
+matches your legal requirements
+Simple
+Signature
+signing with a
+click
+It is very easy to
+use, but despite
+having probative
+value, it does
+not allow the
+signatory to be
+uniquely
+identified.
+Advanced
+with digital
+certificate
+The signatory
+signs with their
+digital
+certificate,
+issued by third
+parties.
+A digital
+certificate is the
+only means of
+technically and
+legally
+guaranteeing a
+person’s
+identity
+on the
+Internet.
+signature
+with OTP
+completes the
+process using a
+unique code
+received
+SMS, ensuring a
+simple and
+quick signing
+experience.
+The integrity of
+the document is
+assured and the
+identity of the
+signatory is
+confirmed
+unequivocally.
+Qualified
+uses a
+qualified
+electronic
+issued by an
+accredited
+provider and
+stored on a
+secure device
+This type of
+signature offers
+highest
+level of legal
+certainty
+guaranteeing
+the integrity of
+the document
+and the verified
+identification of
+the signatory.
+Pricing
+Contact
+Free trial
+Products
+Solutions
+Partners
+Resources
+EN – Language switcher, press tab to navigate to other languages
+button
