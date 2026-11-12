@@ -396,6 +396,11 @@ export class Store {
     );
   }
 
+  /** Integration references only; never replaces documents or audit evidence. */
+  setEnvelopeMetadata(envelopeId: string, metadata: Record<string, unknown>): void {
+    this.exec('UPDATE envelopes SET metadata = ? WHERE id = ?', JSON.stringify(metadata), envelopeId);
+  }
+
   touchEnvelope(envelopeId: string): void {
     this.exec(`UPDATE envelopes SET updated_at = ? WHERE id = ?`, new Date().toISOString(), envelopeId);
   }
