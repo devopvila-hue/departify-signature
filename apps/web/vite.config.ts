@@ -5,6 +5,7 @@ const API_TARGET = process.env.VITE_API_TARGET ?? 'http://127.0.0.1:4310';
 
 export default defineConfig({
   plugins: [react()],
+  base: './',
   server: {
     port: 5310,
     strictPort: true,

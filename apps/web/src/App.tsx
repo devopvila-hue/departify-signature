@@ -11,6 +11,7 @@
  *   #/envelopes/:id     Detail, recipients and audit trail
  *   /sign/:token        Public signing room for a recipient
  */
+import { basePath } from './mount';
 import { useEffect, useState } from 'react';
 import { Dashboard } from './views/Dashboard';
 import { Editor } from './views/Editor';
@@ -38,7 +39,7 @@ function parseHash(hash: string): Route {
  * hash, so a signing link pasted as a full URL opens the signing room.
  */
 function parseRoute(): Route {
-  const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  const path = window.location.pathname.slice(basePath.length).replace(/^\/+|\/+$/g, '');
   const pathSegments = path.split('/').filter(Boolean);
   if (pathSegments[0] === 'sign' && pathSegments[1]) {
     return { name: 'sign', token: pathSegments[1] };

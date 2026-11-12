@@ -253,7 +253,7 @@ export function Editor() {
         {error && <div className="notice notice-error">{error}</div>}
         {createdId && (
           <div className="notice notice-success">
-            Solicitud creada y enviada. <a href={`#/envelopes/${createdId}`}>Ver detalle</a>
+            Solicitud creada. Enlaces activados para compartir; no se ha enviado ningún correo. <a href={`#/envelopes/${createdId}`}>Ver detalle</a>
           </div>
         )}
 
@@ -309,9 +309,9 @@ export function Editor() {
                       onChange={(event) => setSignatureLevel(event.target.value)}
                     >
                       <option value="simple">Simple</option>
-                      <option value="simple_otp">Simple con OTP</option>
-                      <option value="advanced">Avanzada (certificado)</option>
-                      <option value="qualified">Cualificada</option>
+                      
+                      
+                      
                     </select>
                   </div>
                   <div className="field">
@@ -575,7 +575,7 @@ export function Editor() {
               </button>
             ) : (
               <button className="btn btn-primary" disabled={!canContinue || sending} onClick={() => void submit()}>
-                {sending ? 'Enviando…' : 'Crear y enviar'}
+                {sending ? 'Activando…' : 'Crear y activar enlaces'}
               </button>
             )}
           </div>

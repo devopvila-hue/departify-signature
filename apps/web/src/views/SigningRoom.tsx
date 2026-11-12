@@ -7,6 +7,7 @@
  */
 import { useEffect, useRef, useState } from 'react';
 import type { SigningRoomPayload } from '@signatureit/shared';
+import { mountedUrl } from '../mount';
 import { api, ApiError } from '../api';
 import { loadPdf, renderPages, type RenderedPage } from '../pdf';
 import { CanvasHost } from '../CanvasHost';
@@ -36,7 +37,7 @@ export function SigningRoom({ token }: { token: string }) {
         const payload = await api.getSigningRoom(token);
         if (cancelled) return;
         setRoom(payload);
-        const pdf = await loadPdf(payload.documentUrl);
+        const pdf = await loadPdf(mountedUrl(payload.documentUrl));
         const rendered = await renderPages(pdf, 1.1);
         if (!cancelled) setPages(rendered);
       } catch (cause) {

@@ -273,6 +273,10 @@ export class SignatureService {
     if (!recipient) throw new DomainError('This signing link is not valid.', 404, 'invalid_token');
     const envelope = this.store.getEnvelope(recipient.envelopeId);
     if (!envelope) throw new DomainError('Signature request not found.', 404, 'not_found');
+    if (['draft', 'cancelled', 'declined', 'expired'].includes(envelope.status)) {
+      throw new DomainError('This signing link is not active.', 410, 'link_inactive');
+    }
+    this.assertNotExpired(envelope.expiresAt);
 
     this.assertNotExpired(envelope.expiresAt);
 
@@ -340,6 +344,10 @@ export class SignatureService {
     if (!recipient) throw new DomainError('This signing link is not valid.', 404, 'invalid_token');
     const envelope = this.store.getEnvelope(recipient.envelopeId);
     if (!envelope) throw new DomainError('Signature request not found.', 404, 'not_found');
+    if (['draft', 'cancelled', 'declined', 'expired'].includes(envelope.status)) {
+      throw new DomainError('This signing link is not active.', 410, 'link_inactive');
+    }
+    this.assertNotExpired(envelope.expiresAt);
     const document = this.store.getDocumentBySha256(envelope.documentSha256);
     if (!document) throw new DomainError('The document is no longer available.', 404, 'not_found');
     return this.store.getDocumentContent(document.id)!;

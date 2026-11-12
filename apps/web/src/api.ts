@@ -2,6 +2,7 @@
  * Thin API client. Every call goes through `request` so errors surface as a
  * single, predictable shape for the UI.
  */
+import { mountedUrl } from './mount';
 import type {
   EnvelopeDetail,
   EnvelopeSummary,
@@ -21,7 +22,7 @@ export class ApiError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(path, {
+  const response = await fetch(mountedUrl(path), {
     ...init,
     headers: {
       ...(init?.body ? { 'Content-Type': 'application/json' } : {}),

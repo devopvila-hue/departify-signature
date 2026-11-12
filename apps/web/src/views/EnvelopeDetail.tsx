@@ -4,14 +4,15 @@
  */
 import { useEffect, useState } from 'react';
 import type { EnvelopeDetail } from '@signatureit/shared';
+import { mountedUrl } from '../mount';
 import { api } from '../api';
 import { StatusBadge, formatDate, recipientStatusLabel } from '../ui';
 
 const EVENT_LABELS: Record<string, string> = {
   'envelope.created': 'Solicitud creada',
-  'envelope.sent': 'Solicitud enviada',
+  'envelope.sent': 'Enlaces de firma activados',
   'envelope.viewed': 'Documento abierto',
-  'envelope.reminded': 'Recordatorio enviado',
+  'envelope.reminded': 'Recordatorio registrado',
   'recipient.viewed': 'Firmante abrió el documento',
   'recipient.verified': 'Identidad verificada',
   'recipient.signed': 'Firmante firmó',
@@ -44,6 +45,9 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
         api.getAudit(envelopeId),
       ]);
       setEnvelope(detail);
+      setLinks(detail.status === 'draft' ? [] : detail.recipients.map(recipient => ({
+        name: recipient.name, email: recipient.email, role: recipient.role, url: mountedUrl(`/sign/${recipient.token}`),
+      })));
       setVerification(audit.verification);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'No se pudo cargar la solicitud.');
@@ -60,7 +64,7 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
     try {
       const result = await api.sendEnvelope(envelopeId);
       setEnvelope(result.envelope);
-      setLinks(result.links);
+      setLinks(result.links.map(link => ({ ...link, url: mountedUrl(link.url) })));
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'No se pudo enviar.');
     } finally {
@@ -104,20 +108,20 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
           <div className="row">
             {envelope.status === 'draft' && (
               <button className="btn btn-primary" onClick={() => void send()} disabled={busy}>
-                Enviar a firmantes
+                Activar enlaces de firma
               </button>
             )}
             {envelope.status === 'completed' && (
               <>
                 <a
                   className="btn"
-                  href={`/api/envelopes/${envelope.id}/signed?inline=1`}
+                  href={mountedUrl(`/api/envelopes/${envelope.id}/signed?inline=1`)}
                   target="_blank"
                   rel="noreferrer"
                 >
                   Ver firmado
                 </a>
-                <a className="btn btn-primary" href={`/api/envelopes/${envelope.id}/signed`} download>
+                <a className="btn btn-primary" href={mountedUrl(`/api/envelopes/${envelope.id}/signed`)} download>
                   Descargar documento firmado
                 </a>
               </>
@@ -230,7 +234,7 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
               ) : (
                 <div className="dim">Sin datos de verificación.</div>
               )}
-              <a className="btn btn-sm" href={`/api/envelopes/${envelope.id}/document`} target="_blank">
+              <a className="btn btn-sm" href={mountedUrl(`/api/envelopes/${envelope.id}/document`)} target="_blank">
                 Ver documento original
               </a>
             </div>

@@ -19,6 +19,7 @@ export interface BuildServerOptions {
   store: Store;
   service: SignatureService;
   logger?: boolean;
+  production?: boolean;
 }
 
 /** Extracts request metadata used in the audit trail. */
@@ -104,6 +105,9 @@ export async function buildServer(options: BuildServerOptions): Promise<FastifyI
         error: 'validation_error',
         message: parsed.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; '),
       });
+    }
+    if (options.production && parsed.data.signatureLevel !== 'simple') {
+      return reply.status(409).send({ error: 'signature_level_unavailable', message: 'Only simple signatures are available. No OTP or trust service is connected.' });
     }
     const envelope = await service.createEnvelope(parsed.data, actorContext(request));
     return reply.status(201).send({ envelope });
@@ -216,6 +220,7 @@ export async function buildServer(options: BuildServerOptions): Promise<FastifyI
   });
 
   app.post<{ Params: { token: string } }>('/api/signing/:token/otp', async (request, reply) => {
+    if (options.production) return reply.status(409).send({ error: 'otp_unavailable' });
     try {
       return service.requestOtp(request.params.token, actorContext(request));
     } catch (error) {
@@ -227,6 +232,7 @@ export async function buildServer(options: BuildServerOptions): Promise<FastifyI
   });
 
   app.post<{ Params: { token: string } }>('/api/signing/:token/otp/verify', async (request, reply) => {
+    if (options.production) return reply.status(409).send({ error: 'otp_unavailable' });
     const body = request.body as { code?: string } | undefined;
     try {
       return service.verifyOtp(request.params.token, String(body?.code ?? ''), actorContext(request));
@@ -248,7 +254,7 @@ export async function buildServer(options: BuildServerOptions): Promise<FastifyI
     }
     try {
       const envelope = await service.sign(request.params.token, parsed.data, actorContext(request));
-      return { envelope };
+      return { envelope: { id: envelope.id, status: envelope.status } };
     } catch (error) {
       if (error instanceof DomainError) {
         return reply.status(error.statusCode).send({ error: error.code, message: error.message });
@@ -261,11 +267,10 @@ export async function buildServer(options: BuildServerOptions): Promise<FastifyI
     const body = request.body as { reason?: string } | undefined;
     try {
       return {
-        envelope: service.decline(
-          request.params.token,
-          String(body?.reason ?? 'The signer declined to sign.'),
-          actorContext(request),
-        ),
+        envelope: (() => {
+          const result = service.decline(request.params.token, String(body?.reason ?? 'The signer declined to sign.'), actorContext(request));
+          return { id: result.id, status: result.status };
+        })(),
       };
     } catch (error) {
       if (error instanceof DomainError) {
