@@ -33,7 +33,7 @@ function actorContext(request: { ip?: string; headers: Record<string, unknown> }
 
 export async function buildServer(options: BuildServerOptions): Promise<FastifyInstance> {
   const { service, store } = options;
-  const app = Fastify({ logger: options.logger ?? false });
+  const app = Fastify({ logger: options.logger ?? false, bodyLimit: 24 * 1024 * 1024 });
 
   await app.register(cors, { origin: true });
   await app.register(multipart, { limits: { fileSize: 20 * 1024 * 1024 } });
