@@ -3,6 +3,7 @@
  * document download.
  */
 import { useEffect, useState } from 'react';
+import { t } from '../i18n';
 import type { EnvelopeDetail } from '@signatureit/shared';
 import { api } from '../api';
 import { StatusBadge, formatDate, recipientStatusLabel } from '../ui';
@@ -79,7 +80,7 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
   if (!envelope) {
     return (
       <main className="page">
-        <div className="empty">Cargando solicitud…</div>
+        <div className="empty">{t("Cargando solicitud…")}</div>
       </main>
     );
   }
@@ -104,7 +105,7 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
           <div className="row">
             {envelope.status === 'draft' && (
               <button className="btn btn-primary" onClick={() => void send()} disabled={busy}>
-                Enviar a firmantes
+                {t("Enviar a firmantes")}
               </button>
             )}
             {envelope.status === 'completed' && (
@@ -115,10 +116,10 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Ver firmado
+                  {t("Ver firmado")}
                 </a>
                 <a className="btn btn-primary" href={`/api/envelopes/${envelope.id}/signed`} download>
-                  Descargar documento firmado
+                  {t("Descargar documento firmado")}
                 </a>
               </>
             )}
@@ -133,19 +134,19 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
               <span className="kpi-value">
                 {signers.filter((r) => r.status === 'signed').length}/{signers.length}
               </span>
-              <span className="kpi-label">Firmantes</span>
+              <span className="kpi-label">{t("Firmantes")}</span>
             </div>
           </div>
           <div className="card card-pad">
             <div className="kpi">
               <span className="kpi-value">{envelope.fields.length}</span>
-              <span className="kpi-label">Campos</span>
+              <span className="kpi-label">{t("Campos")}</span>
             </div>
           </div>
           <div className="card card-pad">
             <div className="kpi">
               <span className="kpi-value">{envelope.audit.length}</span>
-              <span className="kpi-label">Eventos de auditoría</span>
+              <span className="kpi-label">{t("Eventos de auditoría")}</span>
             </div>
           </div>
         </div>
@@ -153,8 +154,8 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
         {links.length > 0 && (
           <div className="card">
             <div className="card-head">
-              <span className="card-title">Enlaces de firma</span>
-              <span className="dim">Comparte cada enlace con su destinatario</span>
+              <span className="card-title">{t("Enlaces de firma")}</span>
+              <span className="dim">{t("Comparte cada enlace con su destinatario")}</span>
             </div>
             <div className="card-body link-list">
               {links.map((link) => (
@@ -163,7 +164,7 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
                   <span className="dim">{link.email}</span>
                   <span className="grow" />
                   <a href={link.url} target="_blank" rel="noreferrer">
-                    Abrir
+                    {t("Abrir")}
                   </a>
                 </div>
               ))}
@@ -174,15 +175,15 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
         <div className="grid grid-2">
           <div className="card">
             <div className="card-head">
-              <span className="card-title">Firmantes</span>
+              <span className="card-title">{t("Firmantes")}</span>
             </div>
             <table className="table">
               <thead>
                 <tr>
-                  <th>Nombre</th>
-                  <th>Correo</th>
-                  <th>Estado</th>
-                  <th>Firmado</th>
+                  <th>{t("Nombre")}</th>
+                  <th>{t("Correo")}</th>
+                  <th>{t("Estado")}</th>
+                  <th>{t("Firmado")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -210,7 +211,7 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
 
           <div className="card">
             <div className="card-head">
-              <span className="card-title">Integridad de la auditoría</span>
+              <span className="card-title">{t("Integridad de la auditoría")}</span>
               {verification && (
                 <span className={`badge ${verification.valid ? 'badge-completed' : 'badge-declined'}`}>
                   {verification.valid ? 'Cadena válida' : 'Cadena alterada'}
@@ -228,10 +229,10 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
                   <div className="mono dim">head: {verification.headHash}</div>
                 </>
               ) : (
-                <div className="dim">Sin datos de verificación.</div>
+                <div className="dim">{t("Sin datos de verificación.")}</div>
               )}
               <a className="btn btn-sm" href={`/api/envelopes/${envelope.id}/document`} target="_blank">
-                Ver documento original
+                {t("Ver documento original")}
               </a>
             </div>
           </div>
@@ -239,7 +240,7 @@ export function EnvelopeDetailView({ envelopeId }: { envelopeId: string }) {
 
         <div className="card">
           <div className="card-head">
-            <span className="card-title">Registro de auditoría</span>
+            <span className="card-title">{t("Registro de auditoría")}</span>
           </div>
           <div className="card-body">
             <div className="timeline">

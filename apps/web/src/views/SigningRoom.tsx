@@ -6,6 +6,7 @@
  * checkbox before signing.
  */
 import { useEffect, useRef, useState } from 'react';
+import { t } from '../i18n';
 import type { SigningRoomPayload } from '@signatureit/shared';
 import { api, ApiError } from '../api';
 import { loadPdf, renderPages, type RenderedPage } from '../pdf';
@@ -163,7 +164,7 @@ export function SigningRoom({ token }: { token: string }) {
       <div className="sign-shell">
         <div className="sign-card">
           <div className="sign-head">
-            <h1 style={{ fontSize: 22 }}>Firma registrada</h1>
+            <h1 style={{ fontSize: 22 }}>{t("Firma registrada")}</h1>
             <p className="muted" style={{ marginTop: 8 }}>
               El documento se ha firmado correctamente y la evidencia ha quedado registrada en el
               registro de auditoría.
@@ -185,7 +186,7 @@ export function SigningRoom({ token }: { token: string }) {
       <div className="sign-shell">
         <div className="sign-card">
           <div className="sign-head">
-            <h1 style={{ fontSize: 20 }}>No se puede abrir la solicitud</h1>
+            <h1 style={{ fontSize: 20 }}>{t("No se puede abrir la solicitud")}</h1>
           </div>
           <div className="sign-body">
             <div className="notice notice-error">{error}</div>
@@ -200,7 +201,7 @@ export function SigningRoom({ token }: { token: string }) {
       <div className="sign-shell">
         <div className="sign-card">
           <div className="sign-body">
-            <div className="empty">Cargando documento…</div>
+            <div className="empty">{t("Cargando documento…")}</div>
           </div>
         </div>
       </div>
@@ -225,7 +226,7 @@ export function SigningRoom({ token }: { token: string }) {
               )}
             </div>
             <div style={{ textAlign: 'right' }}>
-              <div className="dim">Firmante</div>
+              <div className="dim">{t("Firmante")}</div>
               <div style={{ fontWeight: 650 }}>{room.recipient.name}</div>
               <div className="dim">{room.recipient.email}</div>
             </div>
@@ -243,7 +244,7 @@ export function SigningRoom({ token }: { token: string }) {
 
           <div className="sign-pdf">
             {pages.length === 0 ? (
-              <div className="dim">Cargando páginas…</div>
+              <div className="dim">{t("Cargando páginas…")}</div>
             ) : (
               pages.map((page) => (
                 <div
@@ -299,7 +300,7 @@ export function SigningRoom({ token }: { token: string }) {
 
           {signatureFields.length > 0 && (
             <div className="stack" style={{ gap: 10 }}>
-              <span className="label">Firma del firmante *</span>
+              <span className="label">{t("Firma del firmante *")}</span>
               <div className="signature-pad">
                 <canvas
                   ref={canvasRef}
@@ -308,11 +309,11 @@ export function SigningRoom({ token }: { token: string }) {
                   onMouseUp={stopDrawing}
                   onMouseLeave={stopDrawing}
                 />
-                {!signatureData && <div className="signature-pad-hint">Firma aquí con el ratón</div>}
+                {!signatureData && <div className="signature-pad-hint">{t("Firma aquí con el ratón")}</div>}
               </div>
               <div className="row">
                 <button className="btn btn-sm" onClick={clearSignature} disabled={!signatureData}>
-                  Limpiar
+                  {t("Limpiar")}
                 </button>
                 {signatureData && (
                   <div className="signature-preview">
@@ -325,14 +326,14 @@ export function SigningRoom({ token }: { token: string }) {
 
           {room.requiresOtp && (
             <div className="stack" style={{ gap: 10 }}>
-              <span className="label">Código de verificación *</span>
+              <span className="label">{t("Código de verificación *")}</span>
               <div className="row">
                 <input
                   className="input"
                   style={{ maxWidth: 220 }}
                   value={otp}
                   onChange={(event) => setOtp(event.target.value)}
-                  placeholder="6 dígitos"
+                  placeholder={t("6 dígitos")}
                   inputMode="numeric"
                 />
                 <button className="btn" onClick={() => void requestOtp()}>
@@ -355,7 +356,7 @@ export function SigningRoom({ token }: { token: string }) {
 
           <div className="row" style={{ justifyContent: 'space-between' }}>
             <button className="btn btn-danger" onClick={() => void decline()} disabled={submitting}>
-              Rechazar
+              {t("Rechazar")}
             </button>
             <button
               className="btn btn-primary"
