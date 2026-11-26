@@ -1,5 +1,6 @@
 /** Dashboard: list of signature requests with progress and quick actions. */
 import { useEffect, useMemo, useState } from 'react';
+import { t } from '../i18n';
 import type { EnvelopeSummary } from '@signatureit/shared';
 import { api } from '../api';
 import { StatusBadge, formatDate } from '../ui';
@@ -39,13 +40,13 @@ export function Dashboard() {
       <div className="stack">
         <div className="row-between">
           <div>
-            <h1 style={{ fontSize: 26 }}>Solicitudes de firma</h1>
+            <h1 style={{ fontSize: 26 }}>{t("Solicitudes de firma")}</h1>
             <p className="muted" style={{ marginTop: 6 }}>
               Prepara documentos, define campos y controla el ciclo de firma con trazabilidad completa.
             </p>
           </div>
           <a className="btn btn-primary" href="#/new">
-            Nueva solicitud
+            {t("Nueva solicitud")}
           </a>
         </div>
 
@@ -53,19 +54,19 @@ export function Dashboard() {
           <div className="card card-pad">
             <div className="kpi">
               <span className="kpi-value">{stats.total}</span>
-              <span className="kpi-label">Totales</span>
+              <span className="kpi-label">{t("Totales")}</span>
             </div>
           </div>
           <div className="card card-pad">
             <div className="kpi">
               <span className="kpi-value">{stats.pending}</span>
-              <span className="kpi-label">En curso</span>
+              <span className="kpi-label">{t("En curso")}</span>
             </div>
           </div>
           <div className="card card-pad">
             <div className="kpi">
               <span className="kpi-value">{stats.completed}</span>
-              <span className="kpi-label">Completadas</span>
+              <span className="kpi-label">{t("Completadas")}</span>
             </div>
           </div>
         </div>
@@ -74,21 +75,21 @@ export function Dashboard() {
 
         <div className="card">
           <div className="card-head">
-            <span className="card-title">Todas las solicitudes</span>
+            <span className="card-title">{t("Todas las solicitudes")}</span>
             <button className="btn btn-sm" onClick={() => void load()} disabled={loading}>
               {loading ? 'Actualizando…' : 'Actualizar'}
             </button>
           </div>
 
           {loading && envelopes.length === 0 ? (
-            <div className="empty">Cargando solicitudes…</div>
+            <div className="empty">{t("Cargando solicitudes…")}</div>
           ) : envelopes.length === 0 ? (
             <div className="empty">
-              <h3>Todavía no hay solicitudes</h3>
-              <p>Sube un PDF para crear tu primera solicitud de firma.</p>
+              <h3>{t("Todavía no hay solicitudes")}</h3>
+              <p>{t("Sube un PDF para crear tu primera solicitud de firma.")}</p>
               <div style={{ marginTop: 16 }}>
                 <a className="btn btn-primary" href="#/new">
-                  Crear solicitud
+                  {t("Crear solicitud")}
                 </a>
               </div>
             </div>
@@ -96,11 +97,11 @@ export function Dashboard() {
             <table className="table">
               <thead>
                 <tr>
-                  <th>Documento</th>
-                  <th>Estado</th>
-                  <th>Firmantes</th>
-                  <th>Nivel</th>
-                  <th>Creada</th>
+                  <th>{t("Documento")}</th>
+                  <th>{t("Estado")}</th>
+                  <th>{t("Firmantes")}</th>
+                  <th>{t("Nivel")}</th>
+                  <th>{t("Creada")}</th>
                   <th />
                 </tr>
               </thead>
@@ -123,7 +124,7 @@ export function Dashboard() {
                     <td className="dim">{formatDate(envelope.createdAt)}</td>
                     <td style={{ textAlign: 'right' }}>
                       <a className="btn btn-sm" href={`#/envelopes/${envelope.id}`}>
-                        Abrir
+                        {t("Abrir")}
                       </a>
                     </td>
                   </tr>

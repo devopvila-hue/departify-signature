@@ -12,6 +12,7 @@
  *   /sign/:token        Public signing room for a recipient
  */
 import { useEffect, useState } from 'react';
+import { t } from './i18n';
 import { Dashboard } from './views/Dashboard';
 import { Editor } from './views/Editor';
 import { EnvelopeDetailView } from './views/EnvelopeDetail';
@@ -63,12 +64,12 @@ export function App() {
         <header className="topbar">
           <a className="brand" href="#/">
             <span className="brand-mark">D</span>
-            <span>DEPARTIFY</span>
-            <span className="brand-sub">Signature</span>
+            <span>{t("DEPARTIFY")}</span>
+            <span className="brand-sub">{t("Signature")}</span>
           </a>
           <div className="grow" />
           <a className="btn btn-primary btn-sm" href="#/new">
-            Nueva solicitud
+            {t("Nueva solicitud")}
           </a>
         </header>
       )}

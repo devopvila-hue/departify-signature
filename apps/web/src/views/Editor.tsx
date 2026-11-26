@@ -10,6 +10,7 @@
  * request.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { t } from '../i18n';
 import type { FieldType } from '@signatureit/shared';
 import { api, fileToBase64 } from '../api';
 import { eventToPoint, loadPdf, renderPages, type RenderedPage } from '../pdf';
@@ -220,13 +221,13 @@ export function Editor() {
       <div className="stack">
         <div className="row-between">
           <div>
-            <h1 style={{ fontSize: 26 }}>Nueva solicitud de firma</h1>
+            <h1 style={{ fontSize: 26 }}>{t("Nueva solicitud de firma")}</h1>
             <p className="muted" style={{ marginTop: 6 }}>
               Sube el documento, indica quién firma y coloca los campos sobre las páginas.
             </p>
           </div>
           <a className="btn btn-ghost" href="#/">
-            Volver
+            {t("Volver")}
           </a>
         </div>
 
@@ -253,7 +254,7 @@ export function Editor() {
         {error && <div className="notice notice-error">{error}</div>}
         {createdId && (
           <div className="notice notice-success">
-            Solicitud creada y enviada. <a href={`#/envelopes/${createdId}`}>Ver detalle</a>
+            {t("Solicitud creada y enviada.")} <a href={`#/envelopes/${createdId}`}>{t("Ver detalle")}</a>
           </div>
         )}
 
@@ -261,11 +262,11 @@ export function Editor() {
           <div className="grid grid-sidebar">
             <div className="card">
               <div className="card-head">
-                <span className="card-title">Documento</span>
+                <span className="card-title">{t("Documento")}</span>
               </div>
               <div className="card-body stack">
                 <div className="field">
-                  <span className="label">Archivo PDF</span>
+                  <span className="label">{t("Archivo PDF")}</span>
                   <input
                     ref={fileInputRef}
                     className="input"
@@ -281,48 +282,48 @@ export function Editor() {
                 </div>
 
                 <div className="field">
-                  <span className="label">Título</span>
+                  <span className="label">{t("Título")}</span>
                   <input
                     className="input"
                     value={title}
                     onChange={(event) => setTitle(event.target.value)}
-                    placeholder="Contrato de servicios 2026"
+                    placeholder={t("Contrato de servicios 2026")}
                   />
                 </div>
 
                 <div className="field">
-                  <span className="label">Mensaje para los firmantes</span>
+                  <span className="label">{t("Mensaje para los firmantes")}</span>
                   <textarea
                     className="textarea"
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
-                    placeholder="Explica brevemente el motivo de la firma."
+                    placeholder={t("Explica brevemente el motivo de la firma.")}
                   />
                 </div>
 
                 <div className="grid grid-2">
                   <div className="field">
-                    <span className="label">Nivel de firma</span>
+                    <span className="label">{t("Nivel de firma")}</span>
                     <select
                       className="select"
                       value={signatureLevel}
                       onChange={(event) => setSignatureLevel(event.target.value)}
                     >
-                      <option value="simple">Simple</option>
-                      <option value="simple_otp">Simple con OTP</option>
-                      <option value="advanced">Avanzada (certificado)</option>
-                      <option value="qualified">Cualificada</option>
+                      <option value="simple">{t("Simple")}</option>
+                      <option value="simple_otp">{t("Simple con OTP")}</option>
+                      <option value="advanced">{t("Avanzada (certificado)")}</option>
+                      <option value="qualified">{t("Cualificada")}</option>
                     </select>
                   </div>
                   <div className="field">
-                    <span className="label">Orden de firma</span>
+                    <span className="label">{t("Orden de firma")}</span>
                     <select
                       className="select"
                       value={signingOrder}
                       onChange={(event) => setSigningOrder(event.target.value)}
                     >
-                      <option value="sequential">Secuencial</option>
-                      <option value="parallel">Paralelo</option>
+                      <option value="sequential">{t("Secuencial")}</option>
+                      <option value="parallel">{t("Paralelo")}</option>
                     </select>
                   </div>
                 </div>
@@ -331,15 +332,15 @@ export function Editor() {
 
             <div className="card">
               <div className="card-head">
-                <span className="card-title">Vista previa</span>
+                <span className="card-title">{t("Vista previa")}</span>
               </div>
               <div className="card-body">
                 {loadingPdf ? (
-                  <div className="empty">Renderizando documento…</div>
+                  <div className="empty">{t("Renderizando documento…")}</div>
                 ) : pages.length === 0 ? (
                   <div className="empty">
-                    <h3>Aún no hay documento</h3>
-                    <p>Al subir el PDF verás aquí la previsualización.</p>
+                    <h3>{t("Aún no hay documento")}</h3>
+                    <p>{t("Al subir el PDF verás aquí la previsualización.")}</p>
                   </div>
                 ) : (
                   <div className="dim">
@@ -355,9 +356,9 @@ export function Editor() {
         {step === 2 && (
           <div className="card">
             <div className="card-head">
-              <span className="card-title">Destinatarios</span>
+              <span className="card-title">{t("Destinatarios")}</span>
               <button className="btn btn-sm" onClick={addRecipient}>
-                Añadir destinatario
+                {t("Añadir destinatario")}
               </button>
             </div>
             <div className="card-body stack">
@@ -376,33 +377,33 @@ export function Editor() {
                           })
                         }
                       >
-                        <option value="signer">Firmante</option>
-                        <option value="cc">Solo copia</option>
+                        <option value="signer">{t("Firmante")}</option>
+                        <option value="cc">{t("Solo copia")}</option>
                       </select>
                       {recipients.length > 1 && (
                         <button
                           className="btn btn-sm btn-danger"
                           onClick={() => removeRecipient(recipient.key)}
                         >
-                          Quitar
+                          {t("Quitar")}
                         </button>
                       )}
                     </div>
                   </div>
                   <div className="grid grid-2">
                     <div className="field">
-                      <span className="label">Nombre</span>
+                      <span className="label">{t("Nombre")}</span>
                       <input
                         className="input"
                         value={recipient.name}
                         onChange={(event) =>
                           updateRecipient(recipient.key, { name: event.target.value })
                         }
-                        placeholder="Nombre y apellidos"
+                        placeholder={t("Nombre y apellidos")}
                       />
                     </div>
                     <div className="field">
-                      <span className="label">Correo</span>
+                      <span className="label">{t("Correo")}</span>
                       <input
                         className="input"
                         type="email"
@@ -410,7 +411,7 @@ export function Editor() {
                         onChange={(event) =>
                           updateRecipient(recipient.key, { email: event.target.value })
                         }
-                        placeholder="nombre@empresa.com"
+                        placeholder={t("nombre@empresa.com")}
                       />
                     </div>
                   </div>
@@ -425,7 +426,7 @@ export function Editor() {
             <div className="stack">
               <div className="card">
                 <div className="card-head">
-                  <span className="card-title">Herramientas</span>
+                  <span className="card-title">{t("Herramientas")}</span>
                 </div>
                 <div className="card-body">
                   <div className="field-tool">
@@ -452,7 +453,7 @@ export function Editor() {
                   <span className="card-title">Campos ({fields.length})</span>
                 </div>
                 <div className="card-body stack" style={{ gap: 8 }}>
-                  {fields.length === 0 && <div className="dim">Todavía no hay campos.</div>}
+                  {fields.length === 0 && <div className="dim">{t("Todavía no hay campos.")}</div>}
                   {fields.map((field) => (
                     <div
                       key={field.id}
@@ -490,7 +491,7 @@ export function Editor() {
                             )
                           }
                         >
-                          <option value="">Todos los firmantes</option>
+                          <option value="">{t("Todos los firmantes")}</option>
                           {recipients
                             .filter((recipient) => recipient.role === 'signer')
                             .map((recipient, index) => (
@@ -513,7 +514,7 @@ export function Editor() {
                               )
                             }
                           />
-                          Obligatorio
+                          {t("Obligatorio")}
                         </label>
                       </div>
                     </div>
@@ -560,7 +561,7 @@ export function Editor() {
           <div className="row">
             {step > 1 && (
               <button className="btn" onClick={() => setStep((step - 1) as 1 | 2 | 3)}>
-                Atrás
+                {t("Atrás")}
               </button>
             )}
           </div>
@@ -571,7 +572,7 @@ export function Editor() {
                 disabled={!canContinue}
                 onClick={() => setStep((step + 1) as 1 | 2 | 3)}
               >
-                Continuar
+                {t("Continuar")}
               </button>
             ) : (
               <button className="btn btn-primary" disabled={!canContinue || sending} onClick={() => void submit()}>
@@ -582,7 +583,7 @@ export function Editor() {
         </div>
 
         {step === 2 && signerCount === 0 && (
-          <div className="notice notice-warning">Añade al menos un firmante.</div>
+          <div className="notice notice-warning">{t("Añade al menos un firmante.")}</div>
         )}
       </div>
     </main>
